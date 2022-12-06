@@ -1,46 +1,56 @@
+<div class="menu-cart-wrap">
 @if(count(\Cart::getContent()) > 0)
-    @foreach(\Cart::getContent() as $item)
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-lg-3">
-                    <img src="/images/{{ $item->attributes->image }}"
-                         style="width: 50px; height: 50px;"
-                    >
+    <div class="cart-content-items">
+        @foreach(\Cart::getContent() as $item)
+        <div class="dropdown-item cart-product">
+            <div class="d-flex align-items-center">
+                <div class="img">
+                    <img src="/images/{{ $item->attributes->image }}" class="img-fluid">
                 </div>
-                <div class="col-lg-6">
-                    <b>{{$item->name}}</b>
-                    <br><small>Qty: {{$item->quantity}}</small>
+                <div class="details">
+                    <div class="text">
+                        <a class="cart-product-name" href="javascript:;">
+                            <strong>{{$item->name}}</strong>
+                        </a>
+
+                        <div class="cart-product-info">
+                            <small>
+                                Cantidad: {{$item->quantity}}
+                            </small>
+                            <span class="price">
+                                $ {{ \Cart::get($item->id)->getPriceSum() }} MXN
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3">
-                    <p>${{ \Cart::get($item->id)->getPriceSum() }}</p>
-                </div>
-                <hr>
-            </div>
-        </li>
-    @endforeach
-    <br>
-    <li class="list-group-item">
-        <div class="row">
-            <div class="col-lg-10">
-                <b>Total: </b>${{ \Cart::getTotal() }}
-            </div>
-            <div class="col-lg-2">
-                <form action="{{ route('cart.clear') }}" method="POST">
-                    {{ csrf_field() }}
-                    <button class="btn btn-secondary btn-sm"><i class="fa fa-trash"></i></button>
-                </form>
             </div>
         </div>
-    </li>
-    <br>
-    <div class="row" style="margin: 0px;">
-        <a class="btn btn-dark btn-sm btn-block" href="{{ route('cart.index') }}">
-            CARRITO <i class="fa fa-arrow-right"></i>
-        </a>
-        <a class="btn btn-dark btn-sm btn-block" href="">
-            CHECKOUT <i class="fa fa-arrow-right"></i>
-        </a>
+        @endforeach
+    </div>
+    <div class="dropdown-item total-price d-flex justify-content-between cart-product align-items-center">
+        <span>Total:</span>
+        <div class="c-green d-flex" style="gap: .5rem">
+            <strong>${{ \Cart::getTotal() }} MXN</strong>
+
+            <form action="{{ route('cart.clear') }}" method="POST">
+                {{ csrf_field() }}
+                <button class="delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="cart-product dropdown-item">
+        <div class="align-items-center d-flex justify-content-between cart-actions">
+            <a href="{{ route('cart.index') }}" class="boton">
+                Ver Carrito
+            </a>
+            <a href="#" class="boton">
+                Comprar Ahora
+            </a>
+        </div>
     </div>
 @else
-    <li class="list-group-item">Tu carrito esta vacío</li>
+    <div class="alert alert-primary py-0 px-1" role="alert">
+        <p class="m-0 p-0"> Su carrito de compras está vacío</p>
+    </div>
 @endif
+</div>

@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --main-color:#443;
+    --border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+    --border-radius-hover:4% 95% 6% 95%/95% 4% 92% 5%;
+    --border:.15rem solid var(--main-color);
+    --border-hover:.15rem dashed var(--main-color);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+.heading{
+    font-size: 9rem;
+    text-transform: uppercase;
+    color:transparent;
+    -webkit-text-stroke: .05rem var(--main-color);
+    letter-spacing: .2rem;
+    text-align: center;
+    pointer-events: none;
+    position: relative;
+}
+
+.heading span{
+    position: absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color:var(--main-color);
+    font-size: 3rem;
+}
+
+.boton{
+    display: inline-block ;
+    padding:.5rem 1rem;
+    border-radius: var(--border-radius);
+    color:var(--main-color);
+    background: none;
+    border:var(--border);
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none !important;
+}
+
+.boton:hover{
+    border-radius: var(--border-radius-hover);
+    border:var(--border-hover);
+    color:var(--main-color);
+}
+
+.header{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+.header .logo{
+    color:var(--main-color) !important;
+    font-size: 1.5rem !important;
+}
+
+.header .logo i{
+    padding-left: .5rem !important;
+}
+
+.title {
+    color: var(--main-color);
+    font-size: 2rem;
+    line-height: 1.8;
+    font-weight: bold;
+}
+p {
+    color: var(--main-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+/*-------------------------*/
+/*        ABOUT US         */
+/*-------------------------*/
+.image img{
+    animation:aboutImage 4s linear infinite;
+}
+
+@keyframes aboutImage {
+    0%, 100%{
+        transform: scale(.9);
+        border-radius: var(--border-radius-hover);
+    }
+    50%{
+        transform: scale(.8);
+        border-radius: var(--border-radius);
+    }
+}
+
+.about .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
+    padding-top: 2rem;
+}
+
+.about .icons-container .icons{
+    flex:1 1 10rem;
+    padding:1rem;
+    text-align: center;
+    border:var(--border);
+    border-radius: var(--border-radius);
+}
+
+.about .icons-container .icons img{
+    height: 3rem;
+}
+
+.about .icons-container .icons h3{
+    font-size: 1rem;
+    padding-top: 1rem;
+    color:var(--main-color);
+}
+
+/*-------------------------*/
+/*          MENU           */
+/*-------------------------*/
+
+.menu{
+    background: url(/images/menu-bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.menu .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    justify-content: center;
+}
+
+.menu .box-container .box{
+    flex:1 1 20rem;
+    padding:1.5rem;
+    border:var(--border);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    margin-left: 6rem;
+}
+
+.menu .box-container .box:hover{
+    border:var(--border-hover);
+    border-radius: var(--border-radius-hover);
+}
+
+.menu .box-container .box img{
+    height: 8rem;
+    margin-left: -6rem;
+}
+
+.menu .box-container .box .content h3{
+    font-size: 2rem;
+    color:var(--main-color);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.menu .box-container .box .content p{
+    font-size: 1rem;
+    color:var(--main-color);
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+}
+
+.menu .box-container .box .content span{
+    font-size: 1.2rem;
+    color:var(--main-color);
+    line-height: 1.8;
+}
+
+/*-------------------------*/
+/*         FOOTER          */
+/*-------------------------*/
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 1.5rem;
+    padding:1rem 0;
+    color:var(--main-color);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1rem;
+    padding:.5rem 0;
+    color:var(--main-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 1rem;
+}
+
+.footer .credit{
+    text-align: center;
+    font-size: 1.2rem;
+    padding:2rem 1rem;
+    margin-top: 1rem;
+    color:var(--main-color);
+}
+
+.footer .credit span{
+    border-bottom: var(--border-hover);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** area del carrito **/
+.la-shopping-cart {
+    font-weight: 900;
+    font-size: 1.3rem !important;
+    color: var(--main-color);
+}
+
+.carrito .fa-stack {
+    font-size: 1rem !important;
+}
+
+.carrito .fa-circle-thin {
+    color: var(--main-color);
+}
+
+.carrito .fa-shopping-cart {
+    color: var(--main-color);
+}
+
+.carrito .cantidad {
+    position: absolute;
+    bottom: -5px;
+    right: -7px;
+}
+
+.carrito .cantidad .fa-stack {
+    font-size: .55rem !important;
+}
+
+.carrito .cantidad .fa-circle {
+    color: var(--main-color);
+}
+
+.carrito .cantidad .numero {
+    font-weight: bolder;
+}
+
+.user:hover>.dropdown-menu,
+.carrito:hover>.dropdown-menu {
+    display: block;
+}
+
+
+/*--*/
+
+.dropdown-menu.cart {
+    padding: 14px;
+    min-width: 320px;
+    font-family: "Gothic_A1", Sans-serif;
+}
+
+.cart .cart-product {
+    min-width: 320px;
+}
+
+.cart .cart-product .img {
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    max-height: 70px;
+    overflow: hidden;
+}
+
+.cart .cart-product .details {
+    width: 100% !important;
+}
+
+.cart-product .details .cart-product-name {
+    color: var(--main-color);
+}
+
+.cart-product .details .cart-product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-product .details .delete {
+    border: 0 !important;
+    background-color: inherit !important;
+}
+
+.cart .total-price {
+    padding: 0.25rem 0rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.menu-cart-wrap .alert {
+    margin-bottom: 0px;
+}
+
+.menu-cart-wrap .dropdown-item.cart-product {
+    padding: 0.25rem 0rem;
+}
+
+.cart-product.dropdown-item:focus,
+.cart-product.dropdown-item:hover,
+.cart-product.dropdown-item:active {
+    background-color: #ffffff;
+    color: black;
+}
+
+.cart-product .cart-actions {
+    padding-top: 0.5rem;
+}
+
+/*-------------------------------*/
+/*---------- SCROLLBAR ----------*/
+/*-------------------------------*/
+.cart-content-items {
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/*-- Chrome, Edge y Safari --*/
+.cart-content-items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cart-content-items::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cart-content-items::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 20px;
+    border: 1px solid var(--main-color);
+}
+
+/*-- Firefox --*/
+.cart-content-items {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) transparent;
+}
+
+@media (max-width: 991px) {
+    .p-d-price-actions-w {
+        text-align: center;
+    }
+
+    .p-d-price-w {
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .btn-prod-add-sc {
+        font-size: .8rem;
+    }
+
+    .heading{
+        font-size: 3.5rem;
+    }
+
+    .heading span{
+        font-size: 1.5rem;
+    }
+
+
+    .menu .box-container{
+        gap: .5rem;
+    }
+
+    .menu .box-container .box{
+        margin-left: 0;
+        margin-top: 6rem;
+        flex-flow: column;
+        text-align: center;
+        padding: .8rem;
+    }
+
+    .menu .box-container .box img{
+        margin-left: 0;
+        margin-top: -3.5rem;
+        height: 5rem;
+    }
+
+    .menu .box-container .box .content h3{
+        font-size: 1.2rem;
+        color:var(--main-color);
+        line-height: 1.8;
+        margin: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dropdown-menu-right {
+        right: -76px !important;
+        left: auto;
+    }
+}

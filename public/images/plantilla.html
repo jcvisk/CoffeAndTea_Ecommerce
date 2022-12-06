@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>E-COMMERCE TIENDA</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand logo" href="#">
+                        coffee <i class="fas fa-mug-hot"></i>
+                    </a>
+                    <div class="d-flex align-items-center order-3">
+                        <div class="dropdown carrito">
+                            <a class="position-relative" href="#" id="dropdownMenuCart" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+
+                                <i class="fa fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                                <div class="cantidad">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+                                        <span class="fa-stack-1x fa-inverse numero">
+                                            1
+                                        </span>
+                                    </span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right cart" aria-labelledby="dropdownMenuCart">
+
+                                <div class="menu-cart-wrap">
+                                    <div class="cart-content-items">
+                                        <!--  -->
+                                        <div class="dropdown-item cart-product">
+                                            <div class="d-flex align-items-center">
+                                                <div class="img">
+                                                    <img src="cafe.jpg" class="img-fluid">
+                                                </div>
+                                                <div class="details d-flex justify-content-between">
+                                                    <div class="text">
+                                                        <a class="cart-product-name" href="javascript:;"><strong>Serum
+                                                                Facial ácido
+                                                                hialurónico</strong></a>
+
+                                                        <div class="cart-product-info">
+                                                            <small>
+                                                                Cantidad: 15
+                                                            </small>
+                                                            <span class="price">
+                                                                $ 525.00 MXN
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="dropdown-item total-price d-flex justify-content-between cart-product align-items-center">
+                                        <span>Total:</span>
+                                        <strong class="c-green">
+                                            $ 4,040.00 MXN
+                                        </strong>
+                                        <button class="delete">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <div class="cart-product dropdown-item">
+                                        <div class="align-items-center d-flex justify-content-between cart-actions">
+                                            <a href="shopping-cart-summary.html" class="boton">
+                                                Ver Carrito
+                                            </a>
+                                            <a href="checkout.html" class="boton">
+                                                Comprar Ahora
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- 
+                                <div class="alert alert-primary" role="alert">
+                                    <p class="m-0"> Su carrito de compras está vacío</p>
+                                </div>
+                                 -->
+                                </div>
+                            </div>
+                        </div>
+                        <button class="navbar-toggler ml-3" type="button" data-toggle="collapse"
+                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Book</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="image/home-bg.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="image/home-bg.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="image/home-bg.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <section class="about py-5" id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="heading"> about us <span>why choose us</span> </h1>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="image">
+                                <img src="image/about-img.png" alt="ABOUT" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <h3 class="title">what's make our coffee special!</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse et commodi, ad, doloremque
+                                obcaecati maxime quam minima dolore mollitia saepe quos, debitis incidunt. Itaque
+                                possimus adipisci ipsam harum at autem.</p>
+                            <a href="#" class="boton">read more</a>
+                            <div class="icons-container">
+                                <div class="icons">
+                                    <img src="image/about-icon-1.png" alt="">
+                                    <h3>quality coffee</h3>
+                                </div>
+                                <div class="icons">
+                                    <img src="image/about-icon-2.png" alt="">
+                                    <h3>our branches</h3>
+                                </div>
+                                <div class="icons">
+                                    <img src="image/about-icon-3.png" alt="">
+                                    <h3>free delivery</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="menu py-5" id="menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="heading"> our menu <span>popular menu</span> </h1>
+                        </div>
+                        <div class="col-12">
+                            <div class="box-container">
+
+                                <div class="box">
+                                    <img src="image/menu-1.png" alt="">
+                                    <div class="content">
+                                        <h3>our special coffee</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, id.</p>
+                                        <span>$8.99</span>
+                                    </div>
+                                </div>
+
+                                <div class="box">
+                                    <img src="image/menu-2.png" alt="">
+                                    <div class="content">
+                                        <h3>our special coffee</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, id.</p>
+                                        <span>$8.99</span>
+                                    </div>
+                                </div>
+
+                                <div class="box">
+                                    <img src="image/menu-3.png" alt="">
+                                    <div class="content">
+                                        <h3>our special coffee</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, id.</p>
+                                        <span>$8.99</span>
+                                    </div>
+                                </div>
+
+                                <div class="box">
+                                    <img src="image/menu-4.png" alt="">
+                                    <div class="content">
+                                        <h3>our special coffee</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, id.</p>
+                                        <span>$8.99</span>
+                                    </div>
+                                </div>
+
+                                <div class="box">
+                                    <img src="image/menu-5.png" alt="">
+                                    <div class="content">
+                                        <h3>our special coffee</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, id.</p>
+                                        <span>$8.99</span>
+                                    </div>
+                                </div>
+
+                                <div class="box">
+                                    <img src="image/menu-6.png" alt="">
+                                    <div class="content">
+                                        <h3>our special coffee</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, id.</p>
+                                        <span>$8.99</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="box-container">
+
+                    <div class="box">
+                        <h3>our branches</h3>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> india </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> USA </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> france </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> africa </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> Japan </a>
+                    </div>
+            
+                    <div class="box">
+                        <h3>quick links</h3>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> about </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> menu </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> review </a>
+                        <a href="#"> <i class="fas fa-arrow-right"></i> book </a>
+                    </div>
+            
+                    <div class="box">
+                        <h3>contact info</h3>
+                        <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                        <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                        <a href="#"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
+                        <a href="#"> <i class="fas fa-envelope"></i> mumbai, india = 400104 </a>
+                    </div>
+            
+                    <div class="box">
+                        <h3>contact info</h3>
+                        <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                        <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                        <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                        <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                        <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                    </div>
+            
+                </div>
+            
+                <div class="credit"> creatd by <span>Juan Carlos Vazquez</span> | all rights reserved </div>
+            
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+
+</html>

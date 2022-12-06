@@ -1,34 +1,55 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            E-COMMERCE TIENDA
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('shop') }}">TIENDA</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle"
-                       href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false"
-                    >
-                        <span class="badge badge-pill badge-dark">
-                            <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity()}}
-                        </span>
+<header class="header sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand logo" href="{{ url('/') }}">
+                        coffee <i class="fas fa-mug-hot"></i>
                     </a>
+                    <div class="d-flex align-items-center order-3">
+                        <div class="dropdown carrito">
+                            <a class="position-relative" href="#" id="dropdownMenuCart" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
-                        <ul class="list-group" style="margin: 20px;">
-                            @include('partials.cart-drop')
-                        </ul>
-
+                                <i class="fa fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                                <div class="cantidad">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+                                        <span class="fa-stack-1x fa-inverse numero">
+                                        {{ \Cart::getTotalQuantity()}}
+                                        </span>
+                                    </span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right cart" aria-labelledby="dropdownMenuCart">
+                                @include('partials.cart-drop')
+                            </div>
+                        </div>
+                        <button class="navbar-toggler ml-3" type="button" data-toggle="collapse"
+                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('shop') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Book</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
