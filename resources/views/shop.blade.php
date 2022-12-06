@@ -83,6 +83,7 @@
                                     <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
                                     <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
                                     <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
+                                    <input type="hidden" value="{{ $pro->details }}" id="details" name="details">
                                     <input type="hidden" value="1" id="quantity" name="quantity">
                                     <div>
                                         <button class="boton m-0" title="add to cart">

@@ -1,102 +1,120 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="margin-top: 80px">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Tienda</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cart</li>
-            </ol>
-        </nav>
-        @if(session()->has('success_msg'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session()->get('success_msg') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-        @endif
-        @if(session()->has('alert_msg'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{ session()->get('alert_msg') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-        @endif
-        @if(count($errors) > 0)
-            @foreach($errors0>all() as $error)
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ $error }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-            @endforeach
-        @endif
-        <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <br>
-                @if(\Cart::getTotalQuantity()>0)
-                    <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
-                @else
-                    <h4>No Product(s) In Your Cart</h4><br>
-                    <a href="/" class="btn btn-dark">Continue en la tienda</a>
-                @endif
-
+<div class="container mt-5">
+    <div class="cart-summary">
+        <div class="cart-summary-list p-1 p-md-2 p-lg-3">
+            <div class="container">
+                <header>
+                    @if(\Cart::getTotalQuantity()==1)
+                        <h1>{{ \Cart::getTotalQuantity()}} Producto en el carrito</h1>
+                        @if(count($cartCollection)>0)
+                            <form action="{{ route('cart.clear') }}" method="POST" class="text-right">
+                                {{ csrf_field() }}
+                                <button class="btn-delete mt-2">Vaciar carrito</button>
+                            </form>
+                        @endif
+                    @elseif(\Cart::getTotalQuantity()>1)
+                        <h1>{{ \Cart::getTotalQuantity()}} Productos en el carrito</h1>
+                        @if(count($cartCollection)>0)
+                            <form action="{{ route('cart.clear') }}" method="POST" class="text-right">
+                                {{ csrf_field() }}
+                                <button class="btn-delete mt-2">Vaciar carrito</button>
+                            </form>
+                        @endif
+                    @else
+                        <h1>No Product(s) In Your Cart</h1><br>
+                        <a href="/" class="btn btn-dark">Continue en la tienda</a>
+                    @endif
+                </header>
                 @foreach($cartCollection as $item)
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <img src="/images/{{ $item->attributes->image }}" class="img-thumbnail" width="200" height="200">
+                <div class="card row p-2 my-3">
+                    <div class="col-12 row no-gutters p-0">
+                        <div class="col-3 col-md-2 col-lg-2 align-self-center">
+                            <img src="/images/{{ $item->attributes->image }}"
+                                alt="product" class="img-fluid">
                         </div>
-                        <div class="col-lg-5">
-                            <p>
-                                <b><a href="/shop/{{ $item->attributes->slug }}">{{ $item->name }}</a></b><br>
-                                <b>Price: </b>${{ $item->price }}<br>
-                                <b>Sub Total: </b>${{ \Cart::get($item->id)->getPriceSum() }}<br>
-                                {{--                                <b>With Discount: </b>${{ \Cart::get($item->id)->getPriceSumWithConditions() }}--}}
-                            </p>
+                        <div class="col-4 col-md-6 col-lg-7 py-2 py-lg-3 align-self-center">
+                            <h6 class="title">{{ $item->name }}</h6>
+                            <!-- <p class="desc">{{ $item->description }}</p> -->
                         </div>
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <form action="{{ route('cart.update') }}" method="POST">
+                        <div class="col-5 col-md-4 col-lg-3 py-2 py-lg-3 text-right">
+                            <h6 class="price">$ {{ $item->price }} <small>MXN</small></h6>
+                            <div class="cantidad">
+                                <span>Cantidad </span>
+                                
+                                <form action="{{ route('cart.update') }}" method="POST" class="d-flex" style="gap: .5rem;">
                                     {{ csrf_field() }}
-                                    <div class="form-group row">
-                                        <input type="hidden" value="{{ $item->id}}" id="id" name="id">
-                                        <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}"
-                                               id="quantity" name="quantity" style="width: 70px; margin-right: 10px;">
-                                        <button class="btn btn-secondary btn-sm" style="margin-right: 25px;"><i class="fa fa-edit"></i></button>
+                                    <input type="hidden" value="{{ $item->id}}" id="id" name="id">
+
+                                    <div class="cant-box">
+                                        <div class="" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                            <i class="las la-minus"></i>
+                                        </div>
+                                        <input min="0" name="quantity" value="{{ $item->quantity }}" type="number" id="quantity" name="quantity">
+                                        <div class="" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                            <i class="las la-plus"></i>
+                                        </div>
                                     </div>
-                                </form>
-                                <form action="{{ route('cart.remove') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" value="{{ $item->id }}" id="id" name="id">
-                                    <button class="btn btn-dark btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
+                                    <button class="btn-refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                                 </form>
                             </div>
+                            <h6 class="subtotal mt-3">subtotal: $ {{ \Cart::get($item->id)->getPriceSum() }} <small>MXN</small></h6>
+
+                            <form action="{{ route('cart.remove') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" value="{{ $item->id }}" id="id" name="id">
+                        <button class="btn-delete mt-2">Eliminar</button>
+                    </form>
                         </div>
                     </div>
-                    <hr>
-                @endforeach
-                @if(count($cartCollection)>0)
-                    <form action="{{ route('cart.clear') }}" method="POST">
-                        {{ csrf_field() }}
-                        <button class="btn btn-secondary btn-md">Borrar Carrito</button> 
-                    </form>
-                @endif
-            </div>
-            @if(count($cartCollection)>0)
-                <div class="col-lg-5">
-                    <div class="card">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>Total: </b>${{ \Cart::getTotal() }}</li>
-                        </ul>
-                    </div>
-                    <br><a href="/" class="btn btn-dark">Continue en la tienda</a>
-                    <a href="/checkout" class="btn btn-success">Proceder al Checkout</a>
                 </div>
-            @endif
+                @endforeach
+                
+            </div>
         </div>
-        <br><br>
+        <div class="cart-summary-summary">
+            <div class="content px-1 py-4 p-md-2 p-lg-3">
+                <div class="container">
+                    <header>
+                        <h1>Resumen</h1>
+                    </header>
+                    @if(count($cartCollection)>0)
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between">
+                            <p class="subtotal">Envío:</p>
+                            <p class="subtotal">$ 0 <small>MXN</small></p>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <p class="subtotal">Subtotal:</p>
+                            <p class="subtotal">$ {{ \Cart::getTotal() }} <small>MXN</small></p>
+                        </div>
+                        <div class="text-right mt-2">
+                            <p class="iva">$ {{ \Cart::getTotal() }} <small>MXN</small> IVA incluido</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-around">
+                            <a href="{{ route('shop') }}" class="boton">
+                                Volver
+                            </a>
+                            <a href="javascript:;" class="boton">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+            <div class="content px-1 py-4 p-md-2 p-lg-3 mt-4">
+                <div class="container">
+                    <p class="text-center">Métodos de pago admitidos</p>
+
+                    <div class="text-center">
+                        <img src="/images/icons-pay.png" alt="icons" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 @endsection
