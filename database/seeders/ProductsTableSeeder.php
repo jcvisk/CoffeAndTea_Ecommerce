@@ -153,7 +153,7 @@ class ProductsTableSeeder extends Seeder
             'details' => '60 ml de espresso, 300 ml de leche al vapor, 20 ml leche espumada',
             'price' => 80,
             'shipping_cost' => 0,
-            'description' => '',
+            'description' => 'También conocida en Europa como “cafe au lait”, esta bebida a menudo solo recibe el nombre de “latte”; en inglés, a veces se escribe como “latté” o “lattè”, lo que literalmente significa “café con leche”. Y precisamente eso es: un espresso con mucha leche que fácilmente puede preparar con una cafetera de latte. Pero, tenga cuidado si pide un “latte” en Italia, ya que solo recibirá un vaso de leche.',
             'category_id' => 1,
             'brand_id' => 1,
             'image_path' => 'cafe_latte.webp'
