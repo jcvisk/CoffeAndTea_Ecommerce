@@ -89,7 +89,7 @@
 }
 
 .cart-summary .cart-summary-list .card .cantidad>span {
-    font-size: calc(11px + (15 - 11) * ((100vw - 300px) / (1600 - 300))) !important;
+    font-size: calc(11px + (14 - 11) * ((100vw - 300px) / (1600 - 300))) !important;
 }
 
 .cart-summary .cart-summary-list .card .cantidad .cant-box {

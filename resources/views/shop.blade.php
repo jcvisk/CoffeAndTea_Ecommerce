@@ -69,7 +69,7 @@
                 <div class="box-container">
                 @foreach($products as $pro)
                     <div class="box">
-                        <img src="/images/{{ $pro->image_path }}" alt="{{ $pro->image_path }}">
+                        <img src="/images/products/{{ $pro->image_path }}" alt="{{ $pro->image_path }}">
                         <div class="content">
                             <h3>{{ $pro->name }}</h3>
                             <p>{{ $pro->description }}</p>

@@ -5,7 +5,7 @@
         <div class="dropdown-item cart-product">
             <div class="d-flex align-items-center">
                 <div class="img">
-                    <img src="/images/{{ $item->attributes->image }}" class="img-fluid">
+                    <img src="/images/products/{{ $item->attributes->image }}" class="img-fluid">
                 </div>
                 <div class="details">
                     <div class="text">

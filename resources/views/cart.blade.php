@@ -31,7 +31,7 @@
                 <div class="card row p-2 my-3">
                     <div class="col-12 row no-gutters p-0">
                         <div class="col-3 col-md-2 col-lg-2 align-self-center">
-                            <img src="/images/{{ $item->attributes->image }}"
+                            <img src="/images/products/{{ $item->attributes->image }}"
                                 alt="product" class="img-fluid">
                         </div>
                         <div class="col-4 col-md-6 col-lg-7 py-2 py-lg-3 align-self-center">
