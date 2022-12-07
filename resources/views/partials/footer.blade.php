@@ -24,8 +24,8 @@
                 <h3>contact info</h3>
                 <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
                 <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-                <a href="#"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
-                <a href="#"> <i class="fas fa-envelope"></i> mumbai, india = 400104 </a>
+                <a href="#" style="font-size: 0.9rem; text-transform: none;"> <i class="fas fa-envelope"></i>juan.carlos.gcn@gmail.com</a>
+                <a href="#"> <i class="fas fa-envelope"></i> Mérida, Yuc. </a>
             </div>
             
             <div class="box">

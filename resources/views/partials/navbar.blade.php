@@ -37,16 +37,10 @@
                         <a class="nav-link" href="{{ route('shop') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{{ route('shop') }}/#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Review</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Book</a>
+                        <a class="nav-link" href="{{ route('shop') }}/#menu">Menu</a>
                     </li>
                 </ul>
             </div>

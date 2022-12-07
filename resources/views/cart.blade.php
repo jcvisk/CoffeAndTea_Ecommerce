@@ -23,8 +23,15 @@
                             </form>
                         @endif
                     @else
-                        <h1>No Product(s) In Your Cart</h1><br>
-                        <a href="/" class="btn btn-dark">Continue en la tienda</a>
+                        <div class="card row p-2 my-3">
+                            <div class="col-12 row no-gutters px-2 py-4 text-center">
+                                <div class="col-12"><h1>Su carrito de compras está vacío</h1></div>
+                                <div class="col-12">
+                                    <a href="{{ route('shop') }}" class="boton">Volver a la tienda</a>
+                                </div>
+                            </div>
+                        </div>
+
                     @endif
                 </header>
                 @foreach($cartCollection as $item)
